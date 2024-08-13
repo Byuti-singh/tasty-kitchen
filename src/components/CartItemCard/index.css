@@ -1,0 +1,38 @@
+.cart-item-image {
+  height: 100px;
+  width: 120px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.cart-items-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 50px;
+}
+.counter-button-decrement {
+  height: 20px;
+}
+.counter-button-increment {
+  height: 20px;
+}
+.cart-name {
+  font-family: DM Sans;
+  font-size: 15px;
+  color: #183b56;
+  padding-top: 30px;
+}
+.image-name-card {
+  display: flex;
+}
+.price {
+  font-family: DM Sans;
+  font-size: 15px;
+  color: #f7931e;
+  padding-top: 30px;
+  padding-right: 2%;
+}
+.counter-button-container {
+  margin-top: 20px;
+  margin-right: 12%;
+}

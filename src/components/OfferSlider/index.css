@@ -1,0 +1,15 @@
+.slider-container {
+  height: 250px;
+}
+.home-food-img {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  width: 100%;
+  border-radius: 0px;
+}
+.slick-dots {
+  top: 220px;
+  gap: 0px;
+  opacity: 0px;
+}

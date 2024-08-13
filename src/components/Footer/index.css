@@ -1,0 +1,44 @@
+.footer-container {
+  height: 270px;
+  width: 100%;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+}
+.website-logo-footer {
+  height: 30px;
+  width: 40px;
+ margin-left: 42%; 
+  margin-top: 70px;
+  
+}
+.footer-heading {
+  color: white;
+  font-size: 25px;
+  font-family: DM Sans;
+  padding-top: 50px;
+  padding-left: 18px;
+}
+.footer-logo-heading-card {
+  display: flex;
+  flex-direction: row;
+}
+.footer-para {
+  font-family: Sans;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+.footer-icon-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.icon {
+  /* background-color:white; */
+  color: white;
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+}

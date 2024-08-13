@@ -1,0 +1,33 @@
+.hr-line {
+  border: none;
+  border-bottom: 2px dashed black;
+  margin: 20px 0;
+  width: 100%;
+}
+.order-total {
+  display: flex;
+  justify-content: space-between;
+}
+.place-order {
+  background-color: #f7931e;
+  color: white;
+  height: 40px;
+  width: 90px;
+  border-radius: 7px;
+  border: none;
+}
+.place-order-container {
+  display: flex;
+  justify-content: end;
+}
+.cart-order-list {
+  list-style-type: none;
+}
+.cart-heading {
+  display: flex;
+  justify-content: space-around;
+  font-family: DM Sans;
+  font-size: 10px;
+  color: #475569;
+  font-weight: 500;
+}

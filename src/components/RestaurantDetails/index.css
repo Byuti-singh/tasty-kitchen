@@ -1,0 +1,79 @@
+.restaurant-info-container {
+  background-image: url('https://res.cloudinary.com/dxgtgmvys/image/upload/v1723011748/Frame_279_amw26y.png');
+  height: 270px;
+  width: 100%;
+  background-size: cover;
+  margin-top: 3%;
+}
+.restaurant-info-image {
+  height: 220px;
+  width: 330px;
+  border-radius: 10px;
+  margin-top: 1.5%;
+  margin-left: 10%;
+}
+.restaurant-info-card {
+  display: flex;
+  flex-direction: row;
+}
+.restaurant-info-rating-view {
+  display: flex;
+  flex-direction: row;
+}
+.restaurant-info-name {
+  color: white;
+  font-family: Roboto;
+  font-weight: 500;
+  padding-left: 7%;
+  padding-top: 2%;
+}
+.restaurant-info-cuisine {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 13px;
+  padding-left: 7%;
+}
+.restaurant-info-location {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 13px;
+  padding-left: 7%;
+}
+.star-icon {
+  color: #e2e8f0;
+  height: 13px;
+  width: 13px;
+  /* margin-left: 7%; */
+}
+.restaurant-info-rating {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 13px;
+  padding-left: 7px;
+  padding-top: 4px;
+}
+.restaurant-info-rating-view {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 12px;
+  padding-left: 7%;
+}
+.restaurant-info-cost {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 13px;
+  padding-left: 7px;
+  padding-top: 4px;
+}
+.horizontal-line {
+  height: 25px;
+}
+.food-item-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

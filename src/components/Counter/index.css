@@ -1,0 +1,25 @@
+.counter-button-container {
+  display: flex;
+  flex-direction: row;
+}
+.counter-button-decrement {
+  margin-left: 20px;
+  background-color: transparent;
+  border: 1.5px #475569 solid;
+
+  border-radius: 3px;
+}
+.counter {
+  padding-left: 17px;
+  color: #475569;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 18px;
+}
+.counter-button-increment {
+  margin-left: 13px;
+  background-color: transparent;
+  border: 1.5px #475569 solid;
+
+  border-radius: 3px;
+}

@@ -1,0 +1,56 @@
+.resturant-image-card {
+  height: 130px;
+  width: 150px;
+  border-radius: 10px;
+}
+.restaurant-link {
+  text-decoration: none;
+  color: black;
+}
+.restaurant-list-type {
+  list-style-type: none;
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .restaurant-list-type {
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-list-type {
+    padding-left: 36px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-right: 48px;
+  }
+}
+.star-icon {
+  margin-left: 7px;
+  margin-top: 18px;
+  color: #ffcc00;
+}
+.restaurant-card-details {
+  display: flex;
+}
+.restaurant-name {
+  font-size: 15px;
+  font-family: DM Sans;
+  padding-left: 10px;
+}
+.restaurant-cuisine {
+  font-family: DM Sans;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.restaurant-rating {
+  padding-left: 5px;
+  font-weight: bold;
+  font-family: DM Sans;
+}
+.restaurant-reviews {
+  font-family: DM Sans;
+  font-size: 12px;
+  padding-top: 7px;
+  padding-left: 4px;
+}

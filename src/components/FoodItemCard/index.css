@@ -1,0 +1,73 @@
+.food-image-card {
+  height: 190px;
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 70px;
+}
+.restaurant-link {
+  text-decoration: none;
+  color: black;
+}
+.food-item-list-container {
+  list-style-type: none;
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .food-item-list-container {
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .food-item-list-container {
+    padding-left: 36px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-right: 48px;
+  }
+}
+.star-icon {
+  margin-left: 20px;
+  margin-top: 18px;
+}
+.food-card-details {
+  display: flex;
+}
+.food-name {
+  font-size: 18px;
+  font-family: DM Sans;
+  padding-left: 20px;
+  color: #334155;
+  font-weight: 700;
+}
+
+.food-rating {
+  padding-left: 5px;
+
+  font-family: DM Sans;
+  color: black;
+  font-weight: 500;
+}
+.restaurant-reviews {
+  font-family: DM Sans;
+  font-size: 12px;
+  padding-top: 7px;
+  padding-left: 20px;
+}
+.add-button {
+  border: 2px #ffa412 solid;
+  background-color: transparent;
+  color: #ffa412;
+  height: 30px;
+  width: 60px;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+.food-cost {
+  font-family: DM Sans;
+  font-size: 16px;
+  padding-top: 7px;
+  padding-left: 20px;
+  color: #334155;
+  font-weight: 500;
+}
