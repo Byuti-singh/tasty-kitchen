@@ -12,22 +12,23 @@ const Header = props => {
   }
   return (
     <nav className="nav-header">
-      <Link to="/">
+      <Link to="/" className="nav-link">
         <img
           src="https://res.cloudinary.com/dxgtgmvys/image/upload/v1721756334/Frame_274_cf5ihx.svg"
           alt="website logo"
           className="website-logo"
         />
       </Link>
+
       <h1 className="tasty-kitchen-heading">Tasty Kitchens</h1>
       <nav className="header-end">
         <ul className="nav-menu">
-          <li>
+          <li key="home">
             <Link to="/" className="nav-link">
               Home
             </Link>
           </li>
-          <li>
+          <li key="cart">
             <Link to="/cart" className="nav-link">
               Cart
             </Link>

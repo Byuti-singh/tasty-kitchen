@@ -19,10 +19,11 @@ const OfferSlider = props => {
     <div className="slider-container">
       <Slider {...settings}>
         {carouselImages.map(eachItem => (
-          <div key={eachItem.id}>
+          <div>
             <img
               src={eachItem.imageUrl}
               alt="offer"
+              key={eachItem.id}
               className="home-food-img"
             />
           </div>

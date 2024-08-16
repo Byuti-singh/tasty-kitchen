@@ -47,7 +47,7 @@ class FoodItemCard extends Component {
     }
 
     return (
-      <li key={id} testid="foodItem" className="food-item-list-container">
+      <li key={id} className="food-item-list-container">
         <div className="restaurant-card-image-card">
           <img src={imageUrl} alt="restaurant" className="food-image-card" />
         </div>
@@ -64,7 +64,6 @@ class FoodItemCard extends Component {
               <Counter id={id} />
             ) : (
               <button
-              testid="active-count"
                 type="button"
                 className="add-button"
                 onClick={() => this.add(eachItem)}

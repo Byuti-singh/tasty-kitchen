@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {FaStar} from 'react-icons/fa'
+import {AiFillStar} from 'react-icons/ai'
+import {BiRupee} from 'react-icons/bi'
 import Header from '../Header'
 import Footer from '../Footer'
 import FoodItemCard from '../FoodItemCard'
@@ -77,35 +78,43 @@ class RestaurantDetails extends Component {
     } = restaurantInfo
 
     return (
-      <div>
+      <>
         <Header />
-        <div className="restaurant-info-container">
-          <div className="restaurant-info-card">
-            <img
-              src={imageUrl}
-              alt="restaurant"
-              className="restaurant-info-image"
-            />
-            <div className="restaurant-info-details-card">
-              <h2 className="restaurant-info-name">{name}</h2>
-              <p className="restaurant-info-cuisine">{cuisine}</p>
-              <p className="restaurant-info-location">{location}</p>
-              <div className="restaurant-info-rating-view">
-                <FaStar className="star-icon" />
-                <p className="restaurant-info-rating">{rating}</p>
-              </div>
-              <div className="restaurant-info-rating-view">
-                <p className="restaurant-info-cost">{reviewsCount}+ Ratings</p>
-                <hr className="horizontal-line" />
-                <div>
-                  <p className="restaurant-info-cost">₹ {costForTwo}</p>
+        <div className="product-detail-restro-intro-complete-container">
+          <img
+            className="restaurant-detail-page-image-main"
+            src={imageUrl}
+            alt="restaurant"
+          />
 
-                  <p className="restaurant-info-cost">Cost for two</p>
+          <div className="restaurant-detail-page-main-top-content">
+            <h1 className="restaurant-detail-page-main-heading">{name}</h1>
+            <p className="restaurant-detail-page-main-cuisine">{cuisine}</p>
+            <p className="restaurant-detail-page-main-location">{location}</p>
+            <div className="restaurant-detail-page-main-rate-container">
+              <div className="restaurant-detail-page-main-bottom-container-left">
+                <div className="restaurant-detail-page-main-flex">
+                  <AiFillStar />
+                  <p className="detail-page-rating-and-rupees">{rating}</p>
                 </div>
+                <p className="detail-page-rating-and-rupees-details">
+                  {reviewsCount}+ Ratings
+                </p>
+              </div>
+              <div className="detail-page-main-vertical-line">{null}</div>
+              <div className="restaurant-detail-page-main-bottom-container-right">
+                <div className="restaurant-detail-page-main-flex">
+                  <BiRupee />
+                  <p className="detail-page-rating-and-rupees">{costForTwo}</p>
+                </div>
+                <p className="detail-page-rating-and-rupees-details">
+                  Cost for two
+                </p>
               </div>
             </div>
           </div>
         </div>
+
         <div>
           <ul className="food-item-container">
             {foodItems.map(eachItem => (
@@ -117,8 +126,11 @@ class RestaurantDetails extends Component {
             ))}
           </ul>
         </div>
-        <Footer />
-      </div>
+
+        <div>
+          <Footer />
+        </div>
+      </>
     )
   }
 }

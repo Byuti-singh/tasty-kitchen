@@ -12,20 +12,23 @@ class Cart extends Component {
     totalAmountToPay: 0,
     totalItemInCart: 0,
   }
+
   componentDidMount() {
     this.getCartItems()
   }
+
   getCartItems = () => {
-    let {totalAmountToPay, cartItemList} = this.state
+    let {totalAmountToPay} = this.state
+    const {cartItemList} = this.state
     const emptyCartItemKeyList = []
     const totalItemInCart = localStorage.length
-    for (let i = 0; i < totalItemInCart; i = i + 1) {
+    for (let i = 0; i < totalItemInCart; i += 1) {
       const key = localStorage.key(i) // Get the key at index i
       const valueInString = localStorage.getItem(key) // Get the corresponding value
       const cartItem = JSON.parse(valueInString) // Parse the JSON string back to an object (if applicable)
 
       const {count, cost} = cartItem
-      totalAmountToPay = totalAmountToPay + cost * count
+      totalAmountToPay += cost * count
 
       if (count > 0) {
         cartItemList[i] = cartItem
@@ -81,8 +84,10 @@ class Cart extends Component {
                     </ul>
                     <hr className="hr-line" />
                     <div className="order-total">
-                      <h1>Order Total : </h1>
-                      <h1>₹ {totalAmountToPay}</h1>
+                      <h1 className="total-order-heading">Order Total : </h1>
+                      <h1 className="total-amount-heading">
+                        ₹ {totalAmountToPay}
+                      </h1>
                     </div>
                     <div className="place-order-container">
                       <button

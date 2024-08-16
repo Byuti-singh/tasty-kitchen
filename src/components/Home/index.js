@@ -1,7 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {FaLessThan, FaGreaterThan} from 'react-icons/fa'
+
 import {BsFilterLeft} from 'react-icons/bs'
+import {FaLessThan, FaGreaterThan} from 'react-icons/fa'
 
 import {Redirect, Link} from 'react-router-dom'
 
@@ -159,26 +160,6 @@ class Home extends Component {
       },
       method: 'GET',
     }
-    // const response = await fetch(apiUrl, options)
-    // if (response.ok) {
-    //   const fetchedData = await response.json()
-    //   // const updatedData = fetchedData.products.map(product => ({
-    //   //   title: product.title,
-    //   //   brand: product.brand,
-    //   //   price: product.price,
-    //   //   id: product.id,
-    //   //   imageUrl: product.image_url,
-    //   //   rating: product.rating,
-    //   // }))
-    //   this.setState({
-    //     productsList: updatedData,
-    //     // apiStatus: apiStatusConstants.success,
-    //   })
-    // } else {
-    //   this.setState({
-    //     apiStatus: apiStatusConstants.failure,
-    //   })
-    // }
   }
 
   changeTheSortByOptionValue = event => {
@@ -221,26 +202,26 @@ class Home extends Component {
       isOffersLoading,
       isRestaurantsLoading,
       selectedSortByValue,
+      total,
     } = this.state
+
+    // Below three lines are for getting current page and total page for pagination
+    const totalPage = parseInt(total / 9, 10) + 1
+    const offset = Cookies.get('offset')
+    const currentPage = parseInt(offset / 9, 10) + 1
 
     return (
       <>
         <div className="home-container">
           <Header />
           {isRestaurantsLoading ? (
-            <div
-              className="products-loader-container"
-              testid="restaurants-list-loader"
-            >
+            <div className="products-loader-container">
               <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
             </div>
           ) : (
             <>
               {isOffersLoading ? (
-                <div
-                  className="products-loader-container"
-                  testid="restaurants-offers-loader"
-                >
+                <div className="products-loader-container">
                   <Loader
                     type="TailSpin"
                     color="#f7931e"
@@ -250,36 +231,51 @@ class Home extends Component {
                 </div>
               ) : (
                 <div className="carousel-images">
-                  <OfferSlider carouselImages={carouselImages} />
+                  <OfferSlider
+                    key="carousel-image"
+                    carouselImages={carouselImages}
+                  />
                 </div>
               )}
-              <div className="popular-restaurant-card">
-                <div>
-                  <h2 className="popular-restaurant-heading">
-                    Popular Restaurants
-                  </h2>
-                  <p className="popular-restaurant-para">
+              <div className="popularRestaurantsContainer">
+                <div className="HeadingContainer">
+                  <h1 className="MainHeading">Popular Restaurants</h1>
+                  <p className="MainParagraph">
                     Select Your favourite restaurant special dish and make your
                     day happy...
                   </p>
                 </div>
-                <div className="sort-detail">
-                  <BsFilterLeft className="filter-left" />
-                  <p className="sort-para">Sort By</p>
+                <div className="SearchInputContainer">
+                  <label className="SearchLabel" htmlFor="searchInput">
+                    Search The Restaurant
+                  </label>
+                  <input
+                    type="search"
+                    id="searchInput"
+                    className="SearchElement"
+                    onChange={this.onSearchRestaurant}
+                    placeholder="Search Restaurant Here.."
+                  />
+                </div>
+
+                <div className="FilterContainer">
+                  <BsFilterLeft className="FilterLogo" />
+                  <p className="SortLabel">Sort By</p>
                   <select
                     id="sortBy"
                     onChange={this.changeTheSortByOptionValue}
                     value={selectedSortByValue}
-                    className="sort-select"
+                    className="SelectElement"
                   >
                     {sortByOptions.map(eachOption => (
-                      <option key={eachOption.id}>
+                      <option key={eachOption.id} id={eachOption.id}>
                         {eachOption.displayText}
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
+              <hr className="hr-line" />
               <div>
                 <ul className="restaurant-item-container">
                   {restaurantList.map(eachItem => (
@@ -295,7 +291,6 @@ class Home extends Component {
               <div className="pagination-button">
                 <button
                   type="button"
-                  testid="pagination-left-button"
                   className="lessthan-btn"
                   onClick={this.onBackClick}
                 >
@@ -304,10 +299,11 @@ class Home extends Component {
                     testid="pagination-left-button"
                   />
                 </button>
-                <p>1 of 20</p>
+                <p>
+                  {currentPage} of {totalPage}
+                </p>
                 <button
                   type="button"
-                  testid="pagination-right-button"
                   className="greaterthan-btn"
                   onClick={this.onNextClick}
                 >

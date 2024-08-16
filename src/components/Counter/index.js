@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import {HiOutlineMinusSm} from 'react-icons/hi'
+import {BsPlus} from 'react-icons/bs'
 
 import './index.css'
 
@@ -46,23 +48,21 @@ class Counter extends Component {
     const {count} = forCartItem
 
     return (
-      <div className="counter-button-container">
+      <div className='counter-button-container'>
         <button
-          testid="decrement-count"
-          type="button"
+          type='button'
           onClick={() => this.onDecrement({forCartItem, key})}
-          className="counter-button-decrement"
+          className='counter-button-decrement'
         >
-          -
+          <HiOutlineMinusSm label='minus' />
         </button>
-        <div className="counter">{count}</div>
+        <div className='counter'>{count}</div>
         <button
-          testid="increment-count"
-          type="button"
+          type='button'
           onClick={() => this.onIncrement({forCartItem, key})}
-          className="counter-button-increment"
+          className='counter-button-increment'
         >
-          +
+          <BsPlus className='plus-icon' label='plus' />
         </button>
       </div>
     )

@@ -50,16 +50,6 @@ class LoginForm extends Component {
     }
   }
 
-  // const jwtToken = Cookies.get('jwt_token')
-  //   if (jwtToken !== undefined) {
-  //     return <Redirect to="/" />
-  //   }
-
-  // <p className="marking">
-  //         * Designed & Developed by{' '}
-  //         <span className="marking-span">Byuti Singh</span>
-  //       </p>
-
   renderPasswordField = () => {
     const {password} = this.state
     return (
