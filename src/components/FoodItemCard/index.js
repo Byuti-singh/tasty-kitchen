@@ -32,7 +32,7 @@ class FoodItemCard extends Component {
 
   render() {
     const {id, eachItem} = this.props
-    const {cost, foodType, imageUrl, name, rating} = eachItem
+    const {cost, imageUrl, name, rating} = eachItem
 
     const key = `forCartItem${id}`
     const forCartItemString = localStorage.getItem(key)

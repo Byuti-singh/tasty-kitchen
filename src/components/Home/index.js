@@ -4,8 +4,6 @@ import Cookies from 'js-cookie'
 import {BsFilterLeft} from 'react-icons/bs'
 import {FaLessThan, FaGreaterThan} from 'react-icons/fa'
 
-import {Redirect, Link} from 'react-router-dom'
-
 import Loader from 'react-loader-spinner'
 
 import OfferSlider from '../OfferSlider'
@@ -29,36 +27,22 @@ const sortByOptions = [
   },
 ]
 
-const restaurantsApiStatusConstants = {
-  initial: 'INITIAL',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  inProgress: 'IN_PROGRESS',
-}
-
 class Home extends Component {
   state = {
-    isLoading: true,
     restaurantList: [],
     limit: 9,
     total: 0,
     carouselImages: [],
     isOffersLoading: true,
     isRestaurantsLoading: true,
-    activeOptionId: sortByOptions[0].id,
-    activeCategoryId: '',
     searchInput: '',
-    activeRatingId: '',
-    restaurantApiStatus: restaurantsApiStatusConstants.initial,
     selectedSortByValue: sortByOptions[1].value,
-    activePage: 1,
   }
 
   componentDidMount() {
     Cookies.set('offset', 0)
     this.getOffers()
     this.getRestaurantsList()
-    this.getProducts()
   }
 
   getOffers = async () => {
@@ -89,16 +73,8 @@ class Home extends Component {
     }
   }
 
-  getActivePage = page => {
-    window.scrollTo(500, 500)
-    this.setState({activePage: page}, this.getRestaurantsList)
-  }
-
   getRestaurantsList = async () => {
-    this.setState({
-      restaurantApiStatus: restaurantsApiStatusConstants.inProgress,
-    })
-    const {limit, selectedSortByValue, activePage, searchInput} = this.state
+    const {limit, selectedSortByValue, searchInput} = this.state
     const offset = Cookies.get('offset')
     const token = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=${limit}&sort_by_rating=${selectedSortByValue}`
@@ -133,32 +109,13 @@ class Home extends Component {
       }))
       this.setState({
         restaurantList: formattedRestaurants,
-        restaurantApiStatus: restaurantsApiStatusConstants.success,
         isRestaurantsLoading: false,
         total: data.total,
       })
     } else {
       this.setState({
         isRestaurantsLoading: false,
-        restaurantApiStatus: restaurantsApiStatusConstants.failure,
       })
-    }
-  }
-
-  getProducts = async () => {
-    // this.setState({
-    //   apiStatus: apiStatusConstants.inProgress,
-    // })
-    const jwtToken = Cookies.get('jwt_token')
-    const {activeOptionId, activeCategoryId} = this.state
-    const {searchInput, activeRatingId} = this.state
-    const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeCategoryId}&title_search=${searchInput}&rating=${activeRatingId}`
-    console.log(apiUrl)
-    const options = {
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-      method: 'GET',
     }
   }
 

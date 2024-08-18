@@ -72,27 +72,27 @@ class Cart extends Component {
                   <CartEmptyView />
                 ) : (
                   <div>
-                    <div className='cart-heading'>
+                    <div className="cart-heading">
                       <h1>Item</h1>
                       <h1>Quantity</h1>
                       <h1>Price</h1>
                     </div>
-                    <ul className='cart-order-list'>
+                    <ul className="cart-order-list">
                       {cartItemList.map(eachItem => (
                         <CartItemCard key={eachItem.id} eachItem={eachItem} />
                       ))}
                     </ul>
-                    <hr className='hr-line' />
-                    <div className='order-total'>
-                      <h1 className='total-order-heading'>Order Total : </h1>
-                      <h1 className='total-amount-heading'>
+                    <hr className="hr-line" />
+                    <div className="order-total">
+                      <h1 className="total-order-heading">Order Total : </h1>
+                      <h1 className="total-amount-heading">
                         ₹ {totalAmountToPay}
                       </h1>
                     </div>
-                    <div className='place-order-container'>
+                    <div className="place-order-container">
                       <button
-                        className='place-order'
-                        type='button'
+                        className="place-order"
+                        type="button"
                         onClick={this.onPlaceOrder}
                       >
                         Place Order

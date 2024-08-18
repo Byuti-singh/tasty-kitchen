@@ -6,14 +6,14 @@ import './index.css'
 
 class Counter extends Component {
   state = {
-    count: 0,
+    count1: 0,
   }
 
   onDecrement = props => {
     const {forCartItem, key} = props
     const {id, imageUrl, name, cost} = forCartItem
     let {count} = forCartItem
-    count = count - 1
+    count -= 1
     if (count <= 0) {
       count = 0
     }
@@ -22,7 +22,7 @@ class Counter extends Component {
     const forCartItemUpdatedStringify = JSON.stringify(forCartItemUpdated)
     localStorage.setItem(key, forCartItemUpdatedStringify)
     this.setState({
-      count,
+      count1: count,
     })
   }
 
@@ -30,17 +30,19 @@ class Counter extends Component {
     const {forCartItem, key} = props
     const {id, imageUrl, name, cost} = forCartItem
     let {count} = forCartItem
-    count = count + 1
+    count += 1
 
     const forCartItemUpdated = {id, imageUrl, name, cost, count}
     const forCartItemUpdatedStringify = JSON.stringify(forCartItemUpdated)
     localStorage.setItem(key, forCartItemUpdatedStringify)
     this.setState({
-      count,
+      count1: count,
     })
   }
 
   render() {
+    const {count1} = this.state
+    console.log(count1)
     const {id} = this.props
     const key = `forCartItem${id}`
     const forCartItemStringify = localStorage.getItem(key)
@@ -48,21 +50,21 @@ class Counter extends Component {
     const {count} = forCartItem
 
     return (
-      <div className='counter-button-container'>
+      <div className="counter-button-container">
         <button
-          type='button'
+          type="button"
           onClick={() => this.onDecrement({forCartItem, key})}
-          className='counter-button-decrement'
+          className="counter-button-decrement"
         >
-          <HiOutlineMinusSm label='minus' />
+          <HiOutlineMinusSm label="minus" />
         </button>
-        <div className='counter'>{count}</div>
+        <div className="counter">{count}</div>
         <button
-          type='button'
+          type="button"
           onClick={() => this.onIncrement({forCartItem, key})}
-          className='counter-button-increment'
+          className="counter-button-increment"
         >
-          <BsPlus className='plus-icon' label='plus' />
+          <BsPlus className="plus-icon" label="plus" />
         </button>
       </div>
     )
